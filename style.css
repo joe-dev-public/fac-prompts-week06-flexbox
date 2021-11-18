@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: ghostwhite;
+    margin: 2rem 1rem;
+}
+
+#everything {
+    margin: 0 auto;
+    max-width: 30rem;
+}
