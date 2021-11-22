@@ -1,3 +1,15 @@
+/*
+
+    Todo:
+        - Have an option to have images vertically centred in their little cell.
+
+
+    - Can we use CSS to make a square grid for images of a varying (but "set") width, but of unknown and varying height?
+        - If so, can we do that with flex, or is grid the obvious choice?
+        (- If not, presumably we can do it with JS, so what would the non-JS version look like?)
+
+*/
+
 * {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -5,10 +17,72 @@
 
 body {
     background-color: ghostwhite;
-    margin: 2rem 1rem;
+    margin: 1rem;
 }
 
 #everything {
     margin: 0 auto;
-    max-width: 30rem;
+    width: 50vw;
+}
+
+h1 {
+    margin: 0 0 2rem 0;
+}
+
+#controls {
+    background-color: lightgray;
+    max-width: max-content;
+    padding: 0.5rem;
+}
+
+.gallery {
+    /* align-items: flex-start; */
+    /* background-color: lightgrey; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 3rem 0;
+    padding: 0;
+}
+
+.gallery li {
+    /* align-self: center; */
+    background-color: white;
+    /* border: 1px solid blue; */
+    border: 2px solid white;
+    display: flex; /* Er, I accidentally typed "grid" a while ago? Look into this! */
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    list-style-type: none;
+    margin: 0 0.5rem 0.5rem 0;
+    /* min-width: 200px; */
+    justify-content: space-between;
+    width: 20%; /* This _might_ get set by JS when the page loads, but it's nice to have the matched sensible default here. */
+}
+
+.gallery img {
+    /*
+        "align-self: start":
+            - If you've got bare <img> tags as flex items inside a flex container, this is one way to stop them getting stretched.
+            - This seems to have better browser support than doing "align-items: start" (or "flex-start") on the flex container itself.
+            - If you have the <img> tags inside another element (like <li>), then this isn't needed, but I don't think it has any bad side-effects?
+
+    */
+    align-self: start;
+    /* margin: 0 1rem 1rem 0; */
+    /* min-width: 10vw; */
+    width: 100%;
+}
+
+.gallery li img {
+    /* align-self: center; */
+    /* border: 1px solid red; */
+    /* display: block; */
+}
+
+.gallery li span {
+    /* align-self: end; */
+    /* background-color: yellow; */
+    /* display: block; */
+    /* display: none; */
+    padding: 0.25em;
 }
