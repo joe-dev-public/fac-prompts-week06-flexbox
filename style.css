@@ -2,7 +2,8 @@
 
     Todo:
         - Have an option to have images vertically centred in their little cell.
-
+        - Make it work nicely on mobile :)
+        - Make it so that images can't be zoomed in to beyond their full resolution. (Could be tricky!)
 
     - Can we use CSS to make a square grid for images of a varying (but "set") width, but of unknown and varying height?
         - If so, can we do that with flex, or is grid the obvious choice?
@@ -32,7 +33,26 @@ h1 {
 #controls {
     background-color: lightgray;
     max-width: max-content;
-    padding: 0.5rem;
+    padding: 0.5rem 0.7rem;
+}
+
+#controls label {
+    color: darkslategrey;
+/*     display: block;
+    padding: 0.5rem; */
+}
+
+#zoom {
+    margin: 0 0.5rem;
+    position: relative;
+    top: 0.25rem;
+}
+
+#resetzoom {
+    margin: 0 0 0 0.5rem;
+    padding: 0.25rem 0.5rem;
+    position: relative;
+    top: -0.05rem;
 }
 
 .gallery {

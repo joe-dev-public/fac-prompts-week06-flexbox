@@ -9,6 +9,8 @@
         - blah.forEach may fail if blah is not "actually" an array, but is rather an array-like object.
             - So iterate over blah another way instead!
 
+        - Need to understand how/why dot notation works/is preferable for various things (e.g. element.value = '', etc.)
+
 */
 
 function makeGallerySquare() {
@@ -64,6 +66,8 @@ function zoomer() {
     const zoomElement = document.getElementById('zoom');
     const zoomResetButton = document.getElementById('resetzoom');
 
+    const zoomAmountLabelElement = document.getElementById('zoomamountlabel');
+
     const galleryElements = document.getElementsByClassName('gallery-zoomable');
     let galleryListItems = [];
 
@@ -78,11 +82,10 @@ function zoomer() {
 
         if (event.target.id === 'resetzoom') {
             percent = zoomResetValue;
+            zoomElement.value = zoomResetValue;
         } 
 
-        zoomElement.setAttribute('value', `${percent}`); // should this be necessary?!
-
-        // todo: how to actually update the position of the range <input> (slider) when the reset button is clicked? the sizes reset fine but the slider doesn't
+        zoomAmountLabelElement.innerHTML = `${percent}%`;
 
         for (let i = 0; i < galleryListItems.length; i++){
             for (let j = 0; j < galleryListItems[i].length; j++){
@@ -95,6 +98,8 @@ function zoomer() {
     zoomElement.addEventListener('input', doZooming); // Know your events! 'input' is an important one ;¬)
 
     zoomResetButton.addEventListener('click', doZooming);
+
+    zoomResetButton.click();
 
 }
 
